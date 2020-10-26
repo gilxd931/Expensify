@@ -1,5 +1,4 @@
 import db from '../firebase/firebase';
-import expenses from '../selectors/expenses';
 
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
@@ -55,6 +54,14 @@ export const startSetExpenses = () => {
             });
 
             dispatch(setExpenses(expenses));
+        });
+    };
+};
+
+export const startRemoveExpense = ({ id } = {}) => {
+    return (dispatch) => {
+        return db.ref(`expenses/${id}`).remove().then(() => {
+            dispatch(removeExpense({ id }));
         });
     };
 };
