@@ -14,26 +14,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, db as default }
-
-// db.ref('expenses').push({
-//     description: 'Rent',
-//     note: '',
-//     amount: 109500,
-//     createdAt: 976123498763
-// });
-
-// db.ref('expenses').push({
-//     description: 'Phone bill',
-//     note: '',
-//     amount: 5900,
-//     createdAt: 976123498763
-// });
-
-// db.ref('expenses').push({
-//     description: 'Food',
-//     note: '',
-//     amount: 1200,
-//     createdAt: 976123498763
-// });
+export { firebase, googleAuthProvider, db as default }
